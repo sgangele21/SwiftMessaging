@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9DFBE289355353C73071CB422482E8FA422B0467",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "982FD837F9F7CD761441B1B93C77322DB5E8735B" : 9223372036854775807,
+    "9DFBE289355353C73071CB422482E8FA422B0467" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5C994432-FFFC-47A7-83BF-31F1B0484E58",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "982FD837F9F7CD761441B1B93C77322DB5E8735B" : "",
+    "9DFBE289355353C73071CB422482E8FA422B0467" : "SwiftFireMessaging\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftFireMessaging",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftFireMessaging.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sgangele21\/iOS-Stuff.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "982FD837F9F7CD761441B1B93C77322DB5E8735B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sgangele21\/SwiftMessaging.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9DFBE289355353C73071CB422482E8FA422B0467"
+    }
+  ]
+}
