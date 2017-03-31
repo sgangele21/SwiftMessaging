@@ -22,17 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckl-jY-Zu5">
-                                <rect key="frame" x="16" y="451.5" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.41960784313725491" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Of9-p4-YUe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tK-4a-4OR">
                                 <rect key="frame" x="16" y="91" width="343" height="100"/>
                                 <subviews>
@@ -79,7 +68,7 @@
                                         <rect key="frame" x="8" y="100" width="327" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,27 +94,64 @@
                                     <constraint firstItem="3Nd-Hd-5N7" firstAttribute="top" secondItem="uhO-EI-eB6" secondAttribute="bottom" id="ukB-KA-9Ht"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmK-c3-poK" customClass="GIDSignInButton">
+                                <rect key="frame" x="16" y="512" width="343" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Zea-Mr-xOY"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxB-Tf-zx6">
+                                <rect key="frame" x="16" y="432" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.58072251081466675" green="0.14508659912075553" blue="0.048664006570003741" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qhy-UH-qW6"/>
+                                </constraints>
+                                <state key="normal" title="Register with Email">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="65J-cP-4tA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c2-3M-Pto">
+                                <rect key="frame" x="176" y="483" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.36862745098039218" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ckl-jY-Zu5" firstAttribute="top" secondItem="TjG-sD-sch" secondAttribute="bottom" constant="43" id="2jN-rz-4Ux"/>
-                            <constraint firstItem="Ckl-jY-Zu5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4v2-bE-QGL"/>
+                            <constraint firstItem="DxB-Tf-zx6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1qR-0J-Cji"/>
+                            <constraint firstItem="DxB-Tf-zx6" firstAttribute="top" secondItem="TjG-sD-sch" secondAttribute="bottom" constant="23.5" id="3E0-2B-rVd"/>
+                            <constraint firstItem="FmK-c3-poK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ff4-Us-7ik"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GOY-Br-FIo"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6j-ct-0Ok"/>
+                            <constraint firstItem="DxB-Tf-zx6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MeR-G4-J4U"/>
+                            <constraint firstItem="6c2-3M-Pto" firstAttribute="top" secondItem="DxB-Tf-zx6" secondAttribute="bottom" constant="11" id="UWL-89-Wx3"/>
+                            <constraint firstItem="FmK-c3-poK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VaV-G0-uEP"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xgg-7u-eSG"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="71" id="Z93-mN-9tI"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="c2e-2k-AWW"/>
-                            <constraint firstItem="Ckl-jY-Zu5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cMu-4e-WYY"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cRm-rC-D2S"/>
-                            <constraint firstItem="Ckl-jY-Zu5" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cjF-Lc-MGx"/>
+                            <constraint firstItem="FmK-c3-poK" firstAttribute="top" secondItem="6c2-3M-Pto" secondAttribute="bottom" constant="8" id="dD5-7v-oMK"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kby-U6-bM2"/>
+                            <constraint firstItem="6c2-3M-Pto" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l78-db-AJ8"/>
+                            <constraint firstItem="DxB-Tf-zx6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nLZ-Np-Bjz"/>
+                            <constraint firstItem="FmK-c3-poK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="njZ-41-HID"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sze-oG-VIP"/>
+                            <constraint firstItem="FmK-c3-poK" firstAttribute="top" secondItem="DxB-Tf-zx6" secondAttribute="bottom" constant="40" id="uOa-MO-TTQ"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yla-ku-gxs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailSignInButton" destination="DxB-Tf-zx6" id="Hfd-Za-YPQ"/>
+                        <outlet property="emailTextField" destination="uhO-EI-eB6" id="oIL-eS-A4n"/>
+                        <outlet property="googleSignInButton" destination="FmK-c3-poK" id="C6a-fd-CER"/>
                         <outlet property="loginView" destination="TjG-sD-sch" id="kjF-eO-W5Z"/>
-                        <outlet property="registerButton" destination="Ckl-jY-Zu5" id="oaH-wp-lVk"/>
+                        <outlet property="passwordTextField" destination="3Nd-Hd-5N7" id="9hE-am-2Yx"/>
+                        <outlet property="usernameTextField" destination="8rz-Ab-CM7" id="K1p-8h-HaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

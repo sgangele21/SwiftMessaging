@@ -14,7 +14,7 @@
 		7635F7291E8B315100F69F81 /* SwiftFireMessaging.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7635F7271E8B315100F69F81 /* SwiftFireMessaging.xcdatamodeld */; };
 		7635F72B1E8B315100F69F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7635F72A1E8B315100F69F81 /* Assets.xcassets */; };
 		7635F72E1E8B315100F69F81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7635F72C1E8B315100F69F81 /* LaunchScreen.storyboard */; };
-		7676E4841E8DDC6C001F859B /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7676E4831E8DDC6C001F859B /* GoogleService-Info-2.plist */; };
+		76DD8E641E8DFB2900B2AF63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7676E4831E8DDC6C001F859B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		7635F72A1E8B315100F69F81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7635F72D1E8B315100F69F81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7635F72F1E8B315100F69F81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7676E4831E8DDC6C001F859B /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		7676E4831E8DDC6C001F859B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9DA5190D24A056F63A87819A /* Pods-SwiftFireMessaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFireMessaging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFireMessaging/Pods-SwiftFireMessaging.debug.xcconfig"; sourceTree = "<group>"; };
 		DB4DB5F0A90FEBAD0D14999F /* Pods-SwiftFireMessaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFireMessaging.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFireMessaging/Pods-SwiftFireMessaging.release.xcconfig"; sourceTree = "<group>"; };
 		DDD3CE11D21D2998E749C1AF /* Pods_SwiftFireMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFireMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +55,7 @@
 		7635F7141E8B315100F69F81 = {
 			isa = PBXGroup;
 			children = (
-				7676E4831E8DDC6C001F859B /* GoogleService-Info-2.plist */,
+				7676E4831E8DDC6C001F859B /* GoogleService-Info.plist */,
 				7635F71F1E8B315100F69F81 /* SwiftFireMessaging */,
 				7635F71E1E8B315100F69F81 /* Products */,
 				C0BE46CA19D8DF1B490D0B7E /* Pods */,
@@ -158,7 +158,7 @@
 			files = (
 				7635F72E1E8B315100F69F81 /* LaunchScreen.storyboard in Resources */,
 				7635F72B1E8B315100F69F81 /* Assets.xcassets in Resources */,
-				7676E4841E8DDC6C001F859B /* GoogleService-Info-2.plist in Resources */,
+				76DD8E641E8DFB2900B2AF63 /* GoogleService-Info.plist in Resources */,
 				7635F7261E8B315100F69F81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
