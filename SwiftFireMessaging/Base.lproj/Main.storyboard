@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wJz-jJ-cH9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
+        <scene sceneID="gaJ-Wl-RKv">
+            <objects>
+                <tableViewController id="Xlc-1y-s0p" customClass="MessagingTableViewController" customModule="SwiftFireMessaging" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cLK-Zx-fcJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hHX-v8-GDS">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hHX-v8-GDS" id="gDJ-Vb-O7U">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xlc-1y-s0p" id="cMZ-4Q-OQq"/>
+                            <outlet property="delegate" destination="Xlc-1y-s0p" id="hDW-En-uoc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="nHy-c7-T8Y"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMe-We-1gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-823" y="59"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="aTF-aF-kCn">
+            <objects>
+                <navigationController id="wJz-jJ-cH9" customClass="HomeViewController" customModule="SwiftFireMessaging" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ief-VZ-rz2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="wJz-jJ-cH9" id="f7P-0S-Asn"/>
+                        </connections>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xlc-1y-s0p" kind="relationship" relationship="rootViewController" id="jzL-PP-5Ta"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6aF-ZB-Cs0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1776" y="59"/>
+        </scene>
+        <!--LoginController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftFireMessaging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" title="LoginController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftFireMessaging" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -94,13 +142,6 @@
                                     <constraint firstItem="3Nd-Hd-5N7" firstAttribute="top" secondItem="uhO-EI-eB6" secondAttribute="bottom" id="ukB-KA-9Ht"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmK-c3-poK" customClass="GIDSignInButton">
-                                <rect key="frame" x="16" y="512" width="343" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Zea-Mr-xOY"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxB-Tf-zx6">
                                 <rect key="frame" x="16" y="432" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.58072251081466675" green="0.14508659912075553" blue="0.048664006570003741" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,41 +155,27 @@
                                     <action selector="loginWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="65J-cP-4tA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c2-3M-Pto">
-                                <rect key="frame" x="176" y="483" width="24" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.36862745098039218" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1qR-0J-Cji"/>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="top" secondItem="TjG-sD-sch" secondAttribute="bottom" constant="23.5" id="3E0-2B-rVd"/>
-                            <constraint firstItem="FmK-c3-poK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ff4-Us-7ik"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GOY-Br-FIo"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6j-ct-0Ok"/>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MeR-G4-J4U"/>
-                            <constraint firstItem="6c2-3M-Pto" firstAttribute="top" secondItem="DxB-Tf-zx6" secondAttribute="bottom" constant="11" id="UWL-89-Wx3"/>
-                            <constraint firstItem="FmK-c3-poK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VaV-G0-uEP"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xgg-7u-eSG"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="71" id="Z93-mN-9tI"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="c2e-2k-AWW"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cRm-rC-D2S"/>
-                            <constraint firstItem="FmK-c3-poK" firstAttribute="top" secondItem="6c2-3M-Pto" secondAttribute="bottom" constant="8" id="dD5-7v-oMK"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kby-U6-bM2"/>
-                            <constraint firstItem="6c2-3M-Pto" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l78-db-AJ8"/>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nLZ-Np-Bjz"/>
-                            <constraint firstItem="FmK-c3-poK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="njZ-41-HID"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sze-oG-VIP"/>
-                            <constraint firstItem="FmK-c3-poK" firstAttribute="top" secondItem="DxB-Tf-zx6" secondAttribute="bottom" constant="40" id="uOa-MO-TTQ"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yla-ku-gxs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailSignInButton" destination="DxB-Tf-zx6" id="Hfd-Za-YPQ"/>
                         <outlet property="emailTextField" destination="uhO-EI-eB6" id="oIL-eS-A4n"/>
-                        <outlet property="googleSignInButton" destination="FmK-c3-poK" id="C6a-fd-CER"/>
                         <outlet property="loginView" destination="TjG-sD-sch" id="kjF-eO-W5Z"/>
                         <outlet property="passwordTextField" destination="3Nd-Hd-5N7" id="9hE-am-2Yx"/>
                         <outlet property="usernameTextField" destination="8rz-Ab-CM7" id="K1p-8h-HaO"/>

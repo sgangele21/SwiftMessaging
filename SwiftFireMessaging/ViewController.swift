@@ -11,14 +11,13 @@ import Firebase
 import GoogleSignIn
 import FirebaseAuth
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var emailSignInButton: UIButton!
-    @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     @IBOutlet weak var loginView: UIView!
     
@@ -29,47 +28,38 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var registerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
         self.loginView.layer.cornerRadius = 3.0
         self.emailSignInButton.layer.cornerRadius = 3.0
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("There was an error")
-            // ...
+    @IBAction func loginWithEmail(_ sender: Any) {
+        // First create a user, then login
+        // Login with email and password using the textfields
+        if self.didUserEnterAllFields() == false {
+            UIAlertController.showSimpleMessage(viewController: self, title: "Enter all fields", message: nil)
             return
         }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                          accessToken: authentication.accessToken)
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
-            if let error = error {
-                print("There was an error in credentials")
-                // ...
-                return
-            }
-        }
-    }
-    
-    
-    @IBAction func loginWithEmail(_ sender: Any) {
-        print(self.emailTextField.text!)
-        print(self.passwordTextField.text!)
-        // First create a user, then login
         FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text! , password: self.passwordTextField.text!) {
             (user, error) in
             // TODO: Check for edge cases
+            // Now let's go and login with the created user
+            // Regardless, if this email / password already has an account, let's log them in
             self.login()
         }
+    }
+    
+    func didUserEnterAllFields() -> Bool {
+        return !(self.usernameTextField.text == nil || self.emailTextField.text == nil || self.passwordTextField.text == nil)
     }
     
     func login() {
@@ -77,22 +67,24 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             (user, error) in
             if error != nil {
                 // TODO: Show an alert view saying invalid login
-                print("Invalid login")
+                let title = "Invalid Login"
+                UIAlertController.showSimpleMessage(viewController: self, title: title, message: nil)
             } else {
                 // You have successfully signed in!
-                print("You have successfully logged in")
+                let title = "You have successfully logged in"
+                UIAlertController.showSimpleMessage(viewController: self, title: title, message: nil)
             }
         }
     }
-    
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        self.present(viewController, animated: true, completion: nil)
-    }
-    
-    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        self.dismiss(animated: true, completion: nil)
-    }
 
+}
 
+extension UIAlertController {
+    static func showSimpleMessage(viewController: UIViewController, title: String?, message: String?) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertVC.addAction(action)
+        viewController.present(alertVC, animated: true, completion: nil)
+    }
 }
 
