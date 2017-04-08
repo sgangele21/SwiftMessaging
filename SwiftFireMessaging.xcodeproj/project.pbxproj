@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16B2B9B1943BB327C73FBC36 /* Pods_SwiftFireMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD3CE11D21D2998E749C1AF /* Pods_SwiftFireMessaging.framework */; };
+		760E87CA1E996A2A000A856A /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760E87C91E996A2A000A856A /* NewMessageViewController.swift */; };
 		762124401E9727CE004A7025 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621243F1E9727CE004A7025 /* HomeViewController.swift */; };
 		762124421E972E79004A7025 /* MessagingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762124411E972E79004A7025 /* MessagingTableViewController.swift */; };
 		762124441E973B63004A7025 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762124431E973B63004A7025 /* User.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		760E87C91E996A2A000A856A /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		7621243F1E9727CE004A7025 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		762124411E972E79004A7025 /* MessagingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingTableViewController.swift; sourceTree = "<group>"; };
 		762124431E973B63004A7025 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -81,15 +83,16 @@
 			isa = PBXGroup;
 			children = (
 				7635F7201E8B315100F69F81 /* AppDelegate.swift */,
+				762124411E972E79004A7025 /* MessagingTableViewController.swift */,
+				760E87C91E996A2A000A856A /* NewMessageViewController.swift */,
 				7621243F1E9727CE004A7025 /* HomeViewController.swift */,
 				7635F7221E8B315100F69F81 /* ViewController.swift */,
+				762124431E973B63004A7025 /* User.swift */,
 				7635F7241E8B315100F69F81 /* Main.storyboard */,
 				7635F72A1E8B315100F69F81 /* Assets.xcassets */,
 				7635F72C1E8B315100F69F81 /* LaunchScreen.storyboard */,
 				7635F72F1E8B315100F69F81 /* Info.plist */,
 				7635F7271E8B315100F69F81 /* SwiftFireMessaging.xcdatamodeld */,
-				762124411E972E79004A7025 /* MessagingTableViewController.swift */,
-				762124431E973B63004A7025 /* User.swift */,
 			);
 			path = SwiftFireMessaging;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				7635F7291E8B315100F69F81 /* SwiftFireMessaging.xcdatamodeld in Sources */,
 				762124401E9727CE004A7025 /* HomeViewController.swift in Sources */,
 				762124421E972E79004A7025 /* MessagingTableViewController.swift in Sources */,
+				760E87CA1E996A2A000A856A /* NewMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
