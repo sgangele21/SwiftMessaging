@@ -10,5 +10,14 @@
 struct User {
     let username: String
     let email: String
-    let password: String
+    
+    func JSONFormat() -> [String: Any] {
+        return ["username" : self.username, "email": self.email]
+    }
+}
+
+enum UserKeys: String {
+    case Users
+    case email
+    case username
 }

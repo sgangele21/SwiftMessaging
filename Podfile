@@ -9,5 +9,6 @@ target 'SwiftFireMessaging' do
   pod 'Firebase/Core'
   pod 'GoogleSignIn’
   pod 'Firebase/Auth'
+  pod 'Firebase/Database’
 
 end
