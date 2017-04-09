@@ -36,5 +36,7 @@
 	<string>1:772939515406:ios:1356a573c0b976a9</string>
 	<key>DATABASE_URL</key>
 	<string>https://swiffiremessage.firebaseio.com</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Photos will be used to display a picture of yourself</string>
 </dict>
 </plist>

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+// TODO: You have to check if a user is signed in first when this loads. If not, bump to login screen
 public class MessagingTableViewController: UITableViewController {
     
     // This is the reference to the database
@@ -27,7 +28,10 @@ public class MessagingTableViewController: UITableViewController {
     }
     
     func updateAccordingToUser() {
-        guard let userID = FIRAuth.auth()?.currentUser?.uid else {return}
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else {
+            logout()
+            return
+        }
         rootRef.child(UserKeys.Users.rawValue).observe(.value, with: {(snap: FIRDataSnapshot) in
             guard let value = snap.value as? [String: [String: Any]] else {return}
             guard let user = value[userID] as? [String:String] else {return}

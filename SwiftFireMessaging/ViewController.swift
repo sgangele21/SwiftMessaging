@@ -11,17 +11,30 @@ import Firebase
 import GoogleSignIn
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
-class ViewController: UIViewController {
+class ViewController: UIViewController  {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailSignInButton: UIButton!
     @IBOutlet weak var loginView: UIView!
+    @IBOutlet weak var userImage: UIImageView!
+    
+    // Remember, self is not initialized in phase, so you have to make this a lazy loader
+    lazy var imagePickerController: UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        return imagePicker
+    }()
     
     // This is the reference to the database
     let rootRef = FIRDatabase.database().reference()
+    // Reference to storage
+    let storageRef = FIRStorage.storage().reference()
 
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -30,6 +43,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.userImage.layer.masksToBounds = true
+        self.userImage.layer.cornerRadius = self.userImage.frame.width / 2
         self.loginView.layer.cornerRadius = 3.0
         self.emailSignInButton.layer.cornerRadius = 3.0
         // Do any additional setup after loading the view, typically from a nib.
@@ -57,6 +72,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // It is accidentally storing the default image as well, so check that
     func login(userName: String, email: String, password: String) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password) {
             (user, error) in
@@ -65,10 +81,20 @@ class ViewController: UIViewController {
                 let title = "Invalid Login"
                 UIAlertController.showSimpleMessage(viewController: self, title: title, message: nil)
             } else {
-                // You have successfully signed in!
-                let newUser = User(username: userName, email: email)
-                self.storeUserInDatabase(user: user!, userStruct: newUser)
-                self.dismiss(animated: true, completion: nil)
+                let uniqueString = UUID().uuidString
+                let childStorageRef = self.storageRef.child("profileImages").child(uniqueString)
+                if let imageToUpload = self.userImage.image, let uploadData = UIImagePNGRepresentation(imageToUpload) {
+                   childStorageRef.put(uploadData, metadata: nil, completion: { (metaData, error) in
+                    if error != nil {
+                        print(error)
+                    }
+                    // You have successfully signed in!
+                    // Now we have everything we need, let's go and store this user in the database
+                    let newUser = User(username: userName, email: email, imageURL: (metaData?.downloadURL())!)
+                    self.storeUserInDatabase(user: user!, userStruct: newUser)
+                    self.dismiss(animated: true, completion: nil)
+                   })
+                }
             }
         }
     }
@@ -76,10 +102,31 @@ class ViewController: UIViewController {
     func storeUserInDatabase(user: FIRUser, userStruct: User) {
         let userID = user.uid
         let userRef = self.rootRef.child(UserKeys.Users.rawValue)
+        // Each user is identified by it's UID
         let uniqueIDRef = userRef.child(userID)
+        // Add the values to the newly created UID by the user
         uniqueIDRef.updateChildValues(userStruct.JSONFormat())
     }
+    
+    @IBAction func tappedImageSelector(_ sender: UITapGestureRecognizer) {
+        self.present(self.imagePickerController, animated: true, completion: nil)
+    }
+    
 
+}
+
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // Get's image from imagePicker
+        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else {return}
+        DispatchQueue.main.async {
+            self.userImage.image = image
+        }
+        self.imagePickerController.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension UIAlertController {
