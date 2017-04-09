@@ -155,13 +155,26 @@
                                     <action selector="loginWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="65J-cP-4tA"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Zv9-sR-1pI">
+                                <rect key="frame" x="162" y="200" width="50" height="50"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jWS-eo-j3a"/>
+                                    <constraint firstAttribute="width" constant="50" id="sts-PR-RJ8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bet-io-TEA" appends="YES" id="7EY-ZG-tQu"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.36862745098039218" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1qR-0J-Cji"/>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="top" secondItem="TjG-sD-sch" secondAttribute="bottom" constant="23.5" id="3E0-2B-rVd"/>
+                            <constraint firstItem="TjG-sD-sch" firstAttribute="top" secondItem="Zv9-sR-1pI" secondAttribute="bottom" constant="8.5" id="Cd4-zU-JSs"/>
                             <constraint firstItem="TjG-sD-sch" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GOY-Br-FIo"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6j-ct-0Ok"/>
+                            <constraint firstItem="Zv9-sR-1pI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KgY-Yk-dXC"/>
                             <constraint firstItem="DxB-Tf-zx6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MeR-G4-J4U"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xgg-7u-eSG"/>
                             <constraint firstItem="4tK-4a-4OR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="71" id="Z93-mN-9tI"/>
@@ -178,10 +191,17 @@
                         <outlet property="emailTextField" destination="uhO-EI-eB6" id="oIL-eS-A4n"/>
                         <outlet property="loginView" destination="TjG-sD-sch" id="kjF-eO-W5Z"/>
                         <outlet property="passwordTextField" destination="3Nd-Hd-5N7" id="9hE-am-2Yx"/>
+                        <outlet property="userImage" destination="Zv9-sR-1pI" id="c7W-59-CQm"/>
                         <outlet property="usernameTextField" destination="8rz-Ab-CM7" id="K1p-8h-HaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bet-io-TEA">
+                    <connections>
+                        <action selector="tappedImageSelector:" destination="BYZ-38-t0r" id="drb-Qa-hxS"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="4jQ-ae-7vf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
@@ -189,17 +209,37 @@
         <scene sceneID="U2h-az-ScX">
             <objects>
                 <tableViewController title="NewMessage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bTo-8W-Zze" customClass="NewMessageViewController" customModule="SwiftFireMessaging" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="W44-8u-zVZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="W44-8u-zVZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dQ1-eh-CaO">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCells" rowHeight="60" id="dQ1-eh-CaO">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQ1-eh-CaO" id="3cj-3n-Vbs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVz-40-H1F" userLabel="UserName">
+                                            <rect key="frame" x="17" y="8" width="350" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt7-Q0-Mkx" userLabel="EMial">
+                                            <rect key="frame" x="17" y="30" width="350" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JVz-40-H1F" firstAttribute="trailing" secondItem="3cj-3n-Vbs" secondAttribute="trailingMargin" id="TUq-Uo-Hqz"/>
+                                        <constraint firstItem="JVz-40-H1F" firstAttribute="top" secondItem="3cj-3n-Vbs" secondAttribute="topMargin" id="cuo-8V-Xji"/>
+                                        <constraint firstItem="JVz-40-H1F" firstAttribute="leading" secondItem="3cj-3n-Vbs" secondAttribute="leadingMargin" constant="9" id="omw-g3-qGH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -208,7 +248,7 @@
                             <outlet property="delegate" destination="bTo-8W-Zze" id="S0T-CU-6A6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="t3z-Vo-wkY"/>
+                    <navigationItem key="navigationItem" title="New Message" id="t3z-Vo-wkY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmR-qp-36P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,7 +259,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewMessage" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3dU-FU-c5J" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Njm-LL-49g">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Njm-LL-49g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -233,4 +273,7 @@
             <point key="canvasLocation" x="940" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ImagePlaceHolder" width="45" height="45"/>
+    </resources>
 </document>
